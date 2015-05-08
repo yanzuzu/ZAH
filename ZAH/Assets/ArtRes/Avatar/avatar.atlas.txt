@@ -1,0 +1,13 @@
+
+avatar.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+test
+  rotate: false
+  xy: 3, 3
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
