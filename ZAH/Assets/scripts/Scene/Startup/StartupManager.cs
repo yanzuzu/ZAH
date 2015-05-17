@@ -3,9 +3,9 @@ using System.Collections;
 using ZuEngine;
 using ZuEngine.Event;
 using ZuEngine.Manager;
- 
-public class StartupManager : MonoBehaviour {
+using ZuEngine.StateManagement; 
 
+public class StartupManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		ServiceLocator< SceneLoadManager >.Instance.BeforeLoadLevelName = "BeforeLoadLevelScene";
@@ -13,6 +13,5 @@ public class StartupManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 }

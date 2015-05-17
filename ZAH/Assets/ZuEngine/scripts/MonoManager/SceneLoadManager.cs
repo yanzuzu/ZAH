@@ -10,7 +10,7 @@ namespace ZuEngine.Manager
 		
 		private string m_loadLevelName = string.Empty;
 		private bool m_isLoadLevel = false;
-		
+
 		protected void Start()
 		{
 			ServiceLocator< EventManager >.Instance.RegisterListener (CommonEvents.EVENT_BEFORE_LEVEL_LOAD_OK, this);

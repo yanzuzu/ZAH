@@ -8,11 +8,11 @@ namespace ZuEngine.Manager
 	{
 		private Dictionary< string , Object > m_resMap = new Dictionary<string, Object>();
 
-		public Object LoadResAndCheckIn( string path , bool forceLoad = false )
+		public GameObject LoadRes( string path , bool forceLoad = false )
 		{
 			if( m_resMap.ContainsKey( path ) )
 			{
-				return m_resMap[ path ];
+				return GameObject.Instantiate( m_resMap[ path ] as GameObject );
 			}
 
 			if( forceLoad )
@@ -25,7 +25,7 @@ namespace ZuEngine.Manager
 					return null;
 				}
 				m_resMap[ path ] = loadObj;
-				return m_resMap[ path ];
+				return GameObject.Instantiate( m_resMap[ path ] as GameObject );
 			}else
 			{
 				ZuDebug.LogError(string.Format( "no this res  = {0} is loaded before" , path ) );
