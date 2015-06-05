@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using ZAH.Manager;
 
 namespace ZuEngine.StateManagement
 {
@@ -63,9 +64,9 @@ namespace ZuEngine.StateManagement
 		{
 			CurrentState = stateId;
 
-			foreach(TaskData td in m_tasks.ToArray())
+			for( int i = 0 ; i < m_tasks.Count ; i ++ )
 			{
-				td.Task.Active = ContainsState(td.ActiveStates, stateId);
+				m_tasks[i].Task.Active = ContainsState(m_tasks[i].ActiveStates, stateId);
 			}
 
 			if(StateChangedCallback != null)
@@ -88,9 +89,9 @@ namespace ZuEngine.StateManagement
 
 		public T GetTask<T>() where T : Task
 		{
-			foreach(TaskData td in m_tasks.ToArray())
+			for( int i = 0 ; i < m_tasks.Count ; i ++ )
 			{
-				T result = td.Task as T;
+				T result = m_tasks[i].Task as T;
 
 				if(result != null)
 				{
@@ -104,11 +105,11 @@ namespace ZuEngine.StateManagement
 
 		public void Update(float deltaTime)
 		{
-			foreach(TaskData td in m_tasks.ToArray())
+			for( int i = 0 ; i < m_tasks.Count ; i ++ )
 			{
-				if(td.Task.Active || td.Task.AlwaysUpdates)
+				if(m_tasks[i].Task.Active || m_tasks[i].Task.AlwaysUpdates)
 				{
-					td.Task.Update(deltaTime);
+					m_tasks[i].Task.Update(deltaTime);
 				}
 			}
 		}
@@ -116,10 +117,10 @@ namespace ZuEngine.StateManagement
 
 		public void Destroy()
 		{
-			foreach(TaskData td in m_tasks.ToArray())
+			for( int i = 0 ; i < m_tasks.Count ; i ++ )
 			{
-				td.Task.TaskManager = null;
-				td.Task.Destroy();
+				m_tasks[i].Task.TaskManager = null;
+				m_tasks[i].Task.Destroy();
 			}
 
 			m_tasks.Clear();

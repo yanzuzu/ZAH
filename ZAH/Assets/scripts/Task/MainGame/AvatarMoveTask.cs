@@ -26,17 +26,17 @@ namespace ZAH.Tasks
 
 		}
 
-		public override void Show(bool show)
+		public override void Show(bool p_show)
 		{
 
 		}
 
-		public override void Update(float deltaTime)
+		public override void Update(float p_deltaTime)
 		{
-//			GameObject avatar = ServiceLocator< CharacterManager >.Instance.GetAvatar ();
-//			Vector3 avatarPos = avatar.transform.localPosition;
-//			avatarPos = new Vector3 (avatarPos.x + deltaTime * 10, avatarPos.y, avatarPos.z);
-//			avatar.transform.localPosition = avatarPos;
+			GameObject avatar = ServiceLocator< CharacterManager >.Instance.GetAvatar ();
+			Vector3 avatarPos = avatar.transform.localPosition;
+			avatarPos = new Vector3 (avatarPos.x + p_deltaTime * 10, avatarPos.y, avatarPos.z);
+			avatar.transform.localPosition = avatarPos;
 		}
 
 		#endregion

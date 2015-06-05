@@ -21,6 +21,7 @@ namespace ZAH.State
 			State_Play = TaskManager.CreateState();
 
 			TaskManager.AddTask (new AvatarMoveTask () , State_Play );
+			TaskManager.AddTask (new PlayerCameraMoveTask () , State_Play );
 
 			TaskManager.ChangeState (State_Play);
 		}
