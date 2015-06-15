@@ -35,7 +35,7 @@ namespace ZAH.Tasks
 		{
 			GameObject avatar = ServiceLocator< CharacterManager >.Instance.GetAvatar ();
 			Vector3 avatarPos = avatar.transform.localPosition;
-			avatarPos = new Vector3 (avatarPos.x + p_deltaTime * 10, avatarPos.y, avatarPos.z);
+			avatarPos = new Vector3 (avatarPos.x + p_deltaTime * 30, avatarPos.y, avatarPos.z);
 			avatar.transform.localPosition = avatarPos;
 		}
 
